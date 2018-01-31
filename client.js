@@ -81,17 +81,17 @@ var boneObjs = bonusForEmployees(employees);
 console.log( boneObjs);
 
 function showData () {
-  $ ('#output').show();
+  $ ('#output').toggle();
 }
 var wrapper = $ ('#output'), container;
 for (var key in boneObjs) {
   container = $('<div id="output" class = "container"></div>');
   wrapper.append(container);
   container.append('<div class="name">' + boneObjs[key].name+ '</div>');
-  container.append('<div class="bonusPercent">' + boneObjs[key].bonusPercent +
-  '</div>');
-  container.append('<div class = "totalComp">' + boneObjs[key].totalComp + '</div>');
-  container.append('<div class = "totalBonus">' + boneObjs[key].totalBonus + '</div>');
+  container.append('<div class="bonusPercent">'+ 'Bonus Percentage: ' + boneObjs[key].bonusPercent +
+ '</div>');
+  container.append('<div class = "totalComp">' +'Total Compensation: $' + boneObjs[key].totalComp + '</div>');
+  container.append('<div class = "totalBonus">' +'Total Bonus: $' + boneObjs[key].totalBonus + '</div>');
 }
 
 function onReady () {

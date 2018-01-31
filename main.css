@@ -1,0 +1,16 @@
+.body {
+  font-family: monospace;
+}
+
+.content {
+  width: 200px;
+  margin: auto;
+}
+.container {
+  padding-top: 5px;
+  border-bottom: 1px solid gray;
+}
+.name {
+  font-size: 18px;
+  font-weight: bold;
+}
