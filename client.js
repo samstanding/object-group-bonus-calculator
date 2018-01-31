@@ -8,7 +8,7 @@ var mayella = { name: "Mayella", employeeNumber: "89068", annualSalary: "35000",
 var employees = [ atticus, jem, boo, scout, robert, mayella ];
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
-
+$(document).ready(onReady);
 function calcBonus (obj) {
 
   function bonusPercent(obj) {
@@ -80,6 +80,9 @@ function bonusForEmployees (arr) {
 var boneObjs = bonusForEmployees(employees);
 console.log( boneObjs);
 
+function showData () {
+  $ ('#output').show();
+}
 var wrapper = $ ('#output'), container;
 for (var key in boneObjs) {
   container = $('<div id="output" class = "container"></div>');
@@ -89,4 +92,10 @@ for (var key in boneObjs) {
   '</div>');
   container.append('<div class = "totalComp">' + boneObjs[key].totalComp + '</div>');
   container.append('<div class = "totalBonus">' + boneObjs[key].totalBonus + '</div>');
+}
+
+function onReady () {
+  console.log('page ready');
+  $('#output').hide();
+  $('#showData').on('click', showData );
 }
