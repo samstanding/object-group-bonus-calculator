@@ -56,7 +56,7 @@ function totalComp(totalBonus, annualSalary){
   return (totalBonus + parseInt(annualSalary));
 }
 
-function employeeInfo( name, bonusPercent, totalComp, totalBonus ){
+function EmployeeInfo( name, bonusPercent, totalComp, totalBonus ){
   this.name = name;
   this.bonusPercent = bonusPercent;
   this.totalComp = totalComp;
@@ -64,7 +64,7 @@ function employeeInfo( name, bonusPercent, totalComp, totalBonus ){
 }//new object creator
 
 function bonusForEmployee(obj) {
-  var bonusInfo = new employeeInfo ( obj.name, calcBonus(obj),
+  var bonusInfo = new EmployeeInfo ( obj.name, calcBonus(obj),
   totalComp( totalBonus(calcBonus(obj), obj.annualSalary), obj.annualSalary),
   totalBonus( calcBonus(obj), obj.annualSalary) );
   return bonusInfo;
@@ -77,4 +77,16 @@ function bonusForEmployees (arr) {
   } return arrayOfEmployees;
 }
 
-console.log(bonusForEmployees(employees));
+var boneObjs = bonusForEmployees(employees);
+console.log( boneObjs);
+
+var wrapper = $ ('#output'), container;
+for (var key in boneObjs) {
+  container = $('<div id="output" class = "container"></div>');
+  wrapper.append(container);
+  container.append('<div class="name">' + boneObjs[key].name+ '</div>');
+  container.append('<div class="bonusPercent">' + boneObjs[key].bonusPercent +
+  '</div>');
+  container.append('<div class = "totalComp">' + boneObjs[key].totalComp + '</div>');
+  container.append('<div class = "totalBonus">' + boneObjs[key].totalBonus + '</div>');
+}
